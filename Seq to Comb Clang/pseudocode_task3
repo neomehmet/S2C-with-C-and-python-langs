@@ -1,0 +1,48 @@
+newBenchFile = yeni dosya ac.
+
+while(dosyanin sonuna kadar devam et){
+  Line = her bir satiri oku
+  keywords[] = satiri keywordlere parcala(Line)  //parsere (),;space verilecekler.
+  
+  //definition part mi?
+  if(keywords[0] = 'module')
+    arr_module = Line;
+  else if(keywords[0] = 'input')
+    arr_input = Line;
+ else if(keywords[0] = 'output')
+    arr_outp = Line;
+ else if(keywords[0] = 'wire')
+    arr_wire = Line;
+  
+  //flip flop mu kapilardan biri mi?
+  
+  // == != STRCMP olabilir 	if ( strcmp(Words[0], "dff" ) == 0 )
+  if keywords[0] == 'dff' //flip flop bulundu
+    {
+      outputs_dff[] = keyword[3];
+      inputs_dff[] = keyword[4];
+    }
+  else if(keywords[0] != 'module' 'input' 'output' 'wire')
+  {
+    write(newBenchFile,Line);
+  }
+  
+} //end of while
+benchFile dosyasini kapat
+newBenchFile dosyayi kapat //fclose(newBenchFile);
+
+
+//definition satirlarini guncelleme
+//iki string birlestirme isi  - STRCAT = MERGE
+arr_input = merge(arr_input[0:SIZE-1] , inputs_dff) 
+arr_output = merge(arr_output , outputs_dff) 
+arr_module = merge(arr_module, [arr_output, arr_input])
+
+//guncellemeleri dosyaya yazma
+1-dosyayi ac
+2-dosyanin definitionlari yaz.
+3-sirasiyla yazdir -> arr_module, arr_input, arr_output, arr_wire yazdir sirayla
+4-dosyanin onceki halini yazdir 
+5-dosyayi kapat
+
+
